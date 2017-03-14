@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-       Copyright 2010-2013 the original author or authors.
+
+       Copyright 2010-2016 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -13,29 +14,17 @@
        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
        See the License for the specific language governing permissions and
        limitations under the License.
+
 -->
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.mybatis.jpetstore.persistence.CategoryMapper">
+<project name="${project.name}" xmlns="http://maven.apache.org/DECORATION/1.7.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd">
 
-  <cache />
-  
-  <select id="getCategory" resultType="Category">
-    SELECT
-      CATID AS categoryId,
-      NAME,
-      DESCN AS description
-    FROM CATEGORY
-    WHERE CATID = #{categoryId}
-  </select>
+  <body>
+    <menu name="Manual de Referencia">
+      <item name="Código de ejemplo" href="index.html"/>
+    </menu>
 
-  <select id="getCategoryList" resultType="Category">
-    SELECT
-      CATID AS categoryId,
-      NAME,
-      DESCN AS description
-    FROM CATEGORY
-  </select>
-
-</mapper>
+    <menu ref="reports"/>
+  </body>
+</project>

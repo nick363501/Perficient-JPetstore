@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,17 +13,22 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package org.mybatis.jpetstore.mapper;
 
-package org.mybatis.jpetstore.persistence;
+import java.util.List;
 
-import org.mybatis.jpetstore.domain.Sequence;
+import org.mybatis.jpetstore.domain.Product;
 
 /**
  * @author Eduardo Macarron
  *
  */
-public interface SequenceMapper {
+public interface ProductMapper {
 
-  Sequence getSequence(Sequence sequence);
-  void updateSequence(Sequence sequence);
+  List<Product> getProductListByCategory(String categoryId);
+
+  Product getProduct(String productId);
+
+  List<Product> searchProductList(String keywords);
+
 }

@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,21 +13,24 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-
-package org.mybatis.jpetstore.persistence;
+package org.mybatis.jpetstore.mapper;
 
 import java.util.List;
 
-import org.mybatis.jpetstore.domain.Category;
+import org.mybatis.jpetstore.domain.Order;
 
 /**
  * @author Eduardo Macarron
  *
  */
-public interface CategoryMapper {
+public interface OrderMapper {
 
-  List<Category> getCategoryList();
+  List<Order> getOrdersByUsername(String username);
 
-  Category getCategory(String categoryId);
+  Order getOrder(int orderId);
+  
+  void insertOrder(Order order);
+  
+  void insertOrderStatus(Order order);
 
 }

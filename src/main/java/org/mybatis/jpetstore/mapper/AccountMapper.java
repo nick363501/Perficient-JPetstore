@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,23 +13,30 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package org.mybatis.jpetstore.mapper;
 
-package org.mybatis.jpetstore.persistence;
-
-import java.util.List;
-
-import org.mybatis.jpetstore.domain.Product;
+import org.mybatis.jpetstore.domain.Account;
 
 /**
  * @author Eduardo Macarron
  *
  */
-public interface ProductMapper {
+public interface AccountMapper {
 
-  List<Product> getProductListByCategory(String categoryId);
+  Account getAccountByUsername(String username);
 
-  Product getProduct(String productId);
+  Account getAccountByUsernameAndPassword(String username, String password);
 
-  List<Product> searchProductList(String keywords);
+  void insertAccount(Account account);
+  
+  void insertProfile(Account account);
+  
+  void insertSignon(Account account);
+
+  void updateAccount(Account account);
+
+  void updateProfile(Account account);
+
+  void updateSignon(Account account);
 
 }

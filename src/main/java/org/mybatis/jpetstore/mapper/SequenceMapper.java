@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,31 +13,16 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+package org.mybatis.jpetstore.mapper;
 
-package org.mybatis.jpetstore.persistence;
-
-import org.mybatis.jpetstore.domain.Account;
+import org.mybatis.jpetstore.domain.Sequence;
 
 /**
  * @author Eduardo Macarron
  *
  */
-public interface AccountMapper {
+public interface SequenceMapper {
 
-  Account getAccountByUsername(String username);
-
-  Account getAccountByUsernameAndPassword(String username, String password);
-
-  void insertAccount(Account account);
-  
-  void insertProfile(Account account);
-  
-  void insertSignon(Account account);
-
-  void updateAccount(Account account);
-
-  void updateProfile(Account account);
-
-  void updateSignon(Account account);
-
+  Sequence getSequence(Sequence sequence);
+  void updateSequence(Sequence sequence);
 }

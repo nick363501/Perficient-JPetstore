@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,21 +13,25 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-
-package org.mybatis.jpetstore.persistence;
+package org.mybatis.jpetstore.mapper;
 
 import java.util.List;
+import java.util.Map;
 
-import org.mybatis.jpetstore.domain.LineItem;
+import org.mybatis.jpetstore.domain.Item;
 
 /**
  * @author Eduardo Macarron
  *
  */
-public interface LineItemMapper {
+public interface ItemMapper {
 
-  List<LineItem> getLineItemsByOrderId(int orderId);
+  void updateInventoryQuantity(Map<String, Object> param);
 
-  void insertLineItem(LineItem lineItem);
+  int getInventoryQuantity(String itemId);
+
+  List<Item> getItemListByProduct(String productId);
+
+  Item getItem(String itemId);
 
 }

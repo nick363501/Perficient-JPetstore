@@ -1,5 +1,5 @@
-/*
- *    Copyright 2010-2013 the original author or authors.
+/**
+ *    Copyright 2010-2016 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-
 package org.mybatis.jpetstore.web.actions;
 
 import java.io.Serializable;
@@ -26,7 +25,7 @@ import net.sourceforge.stripes.action.SimpleMessage;
  * @author Eduardo Macarron
  *
  */
-abstract class AbstractActionBean implements ActionBean, Serializable {
+public abstract class AbstractActionBean implements ActionBean, Serializable {
 
   private static final long serialVersionUID = -1767714708233127983L;
 
@@ -38,10 +37,12 @@ abstract class AbstractActionBean implements ActionBean, Serializable {
     context.getMessages().add(new SimpleMessage(value));
   }
   
+  @Override
   public ActionBeanContext getContext() {
     return context;
   }
 
+  @Override
   public void setContext(ActionBeanContext context) {
     this.context = context;
   }

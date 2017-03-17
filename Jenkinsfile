@@ -14,9 +14,7 @@ node {
     }
 
   stage('Publish to Nexus') {
-    steps {
-      nexusArtifactUploader artifacts: [[artifactId: 'jpetstore', classifier: '', file: 'target/jpetstore.war', type: 'war']], credentialsId: 'f874c3a9-2332-4efa-9b8c-09b98d8164e2', groupId: 'com.perficient', nexusUrl: '158.85.63.189:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenkins-preprod', version: '${BUILD_NUMBER}'
-      }
+    nexusArtifactUploader artifacts: [[artifactId: 'jpetstore', classifier: '', file: 'target/jpetstore.war', type: 'war']], credentialsId: 'f874c3a9-2332-4efa-9b8c-09b98d8164e2', groupId: 'com.perficient', nexusUrl: '158.85.63.189:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenkins-preprod', version: '${BUILD_NUMBER}'
     }
 
   stage('Deploy to Development') {

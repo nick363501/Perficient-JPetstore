@@ -1,6 +1,6 @@
 node {
   def MVN_HOME
-  stage('Build') {
+  stage('BUILD: Maven Build') {
     git 'https://github.com/Perficient-DevOps/jpetstore-6'
     MVN_HOME = tool 'M3'
 
@@ -8,16 +8,19 @@ node {
     else {bat(/"${MVN_HOME}\bin\mvn" -Dmaven.test.failure.ignore clean package/)}
     }
 
-  stage('Publish Unit Test Results') {
+  stage('TEST: Publish JUnit Results') {
     junit '**/target/surefire-reports/TEST-*.xml'
     archive 'target/*.jar'
     }
 
-  stage('Publish to Nexus') {
+  stage('DEPLOY: Publish to Nexus') {
     nexusArtifactUploader artifacts: [[artifactId: 'jpetstore', classifier: '', file: 'target/jpetstore.war', type: 'war']], credentialsId: 'f874c3a9-2332-4efa-9b8c-09b98d8164e2', groupId: 'com.perficient', nexusUrl: '158.85.63.189:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenkins-preprod', version: '${BUILD_NUMBER}'
     }
 
-  stage('Deploy to Development') {
-
+  stage('DEPLOY: Trigger UrbanCode Deploy Version Import') {
+    step([$class: 'UCDeployPublisher',
+      siteName: '158.85.63.187',
+      component: [$class: 'com.urbancode.jenkins.plugins.ucdeploy.VersionHelper$VersionBlock', componentName: 'JPetStore-J2EE', delivery: [$class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Pull']]
+      ])
     }
   }

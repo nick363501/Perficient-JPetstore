@@ -26,7 +26,7 @@ node {
           delivery: [
               $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
               pushVersion: '${BUILD_NUMBER}',
-              baseDir: '',
+              baseDir: '/var/lib/jenkins/workspace/JPetStorePipeline/target',
               fileIncludePatterns: 'target/*.zip',
               fileExcludePatterns: '',
               pushProperties: 'jenkins.server=Local\njenkins.reviewed=false',

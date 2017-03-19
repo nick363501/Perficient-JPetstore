@@ -19,7 +19,7 @@ node {
 
   stage('Stage in UrbanCode Deploy') {
     step([$class: 'UCDeployPublisher',
-      siteName: 'local',
+      siteName: '158.85.63.187',
       component: [
           $class: 'com.urbancode.jenkins.plugins.ucdeploy.VersionHelper$VersionBlock',
           componentName: 'JPetStore-J2EE',
@@ -50,4 +50,4 @@ node {
           ]
       ])
     }
-  }    
+  }

@@ -17,22 +17,37 @@ node {
     nexusArtifactUploader artifacts: [[artifactId: 'jpetstore', classifier: '', file: 'target/jpetstore.war', type: 'war']], credentialsId: 'f874c3a9-2332-4efa-9b8c-09b98d8164e2', groupId: 'com.perficient', nexusUrl: '158.85.63.189:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'jenkins-preprod', version: '${BUILD_NUMBER}'
     }
 
-  stage('UrbanCode Deploy Import from Nexus') {
-    withCredentials([usernamePassword(credentialsId: 'f874c3a9-2332-4efa-9b8c-09b98d8164e2', passwordVariable: 'NEXUS_PASS', usernameVariable: 'NEXUS_USER')]) {
-      step([$class: 'UCDeployPublisher',
-        siteName: '158.85.63.187',
-        component: [
+  stage('Stage in UrbanCode Deploy') {
+    step([$class: 'UCDeployPublisher',
+      siteName: 'local',
+      component: [
           $class: 'com.urbancode.jenkins.plugins.ucdeploy.VersionHelper$VersionBlock',
           componentName: 'JPetStore-J2EE',
           delivery: [
-            $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Pull',
-            pullSourceType: 'Maven',
-            pullProperties: 'MavenImportProperties/name=${BUILD_NUMBER}\nMavenImportProperties/description=Triggered import from Jenkins',
-            pullSourceProperties: 'MavenImportProperties/repoURL=http://158.85.63.189:8081/repository/jenkins-preprod\nMavenImportProperties/groupId=com.perficient\nMavenImportProperties/artifactId=jpetstore\nMavenImportProperties/copyCount=1\nMavenImportProperties/extension=war\nMavenImportProperties/user=${NEXUS_USER}\nMavenImportProperties/password=${NEXUS_PASS}',
-            pullIncremental: false
-            ]
+              $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
+              pushVersion: '${BUILD_NUMBER}',
+              baseDir: '',
+              fileIncludePatterns: 'target/*.zip',
+              fileExcludePatterns: '',
+              pushProperties: 'jenkins.server=Local\njenkins.reviewed=false',
+              pushDescription: 'Pushed from Jenkins Pipeline',
+              pushIncremental: false
+              ]
           ]
-        ])
-      }
+      ])
     }
-  }
+
+  stage('Deploy to Development') {
+    step([$class: 'UCDeployPublisher',
+      siteName: 'local',
+      deploy: [
+          $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeployHelper$DeployBlock',
+          deployApp: 'JPetStore',
+          deployEnv: 'Development',
+          deployProc: 'JPetStore Deploy',
+          deployVersions: 'JPetStore-J2EE:${BUILD_NUMBER}',
+          deployOnlyChanged: false
+          ]
+      ])
+    }
+  }    

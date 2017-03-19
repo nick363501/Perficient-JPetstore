@@ -39,7 +39,7 @@ node {
 
   stage('Deploy to Development') {
     step([$class: 'UCDeployPublisher',
-      siteName: 'local',
+      siteName: '158.85.63.187',
       deploy: [
           $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeployHelper$DeployBlock',
           deployApp: 'JPetStore',

@@ -27,7 +27,7 @@ node {
               $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
               pushVersion: '${BUILD_NUMBER}',
               baseDir: '/var/lib/jenkins/workspace/JPetStorePipeline/target',
-              fileIncludePatterns: 'target/*.zip',
+              fileIncludePatterns: 'target/*.war',
               fileExcludePatterns: '',
               pushProperties: 'jenkins.server=Local\njenkins.reviewed=false',
               pushDescription: 'Pushed from Jenkins Pipeline',

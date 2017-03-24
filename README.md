@@ -49,13 +49,13 @@ Running JPetStore sample under Tomcat (using the [cargo-maven2-plugin](https://c
   >
   > | Profile   | Description |
   > | --------- | ----------- |
-  > | tomcat90  | Running under the Tomcat 9.0 (Mileston version) |
+  > | tomcat90  | Running under the Tomcat 9.0 (Milestone version) |
   > | **tomcat85**  | **Running under the Tomcat 8.5 (default profile)** |
   > | tomcat80  | Running under the Tomcat 8.0 |
   > | tomcat70  | Running under the Tomcat 7.0 |
   > | tomee     | Running under the TomEE 7 |
   > | wildfly   | Running under the WildFly 10 |
-  > | liberty   | Running under the WebSphere Liberty 16 |
+  > | liberty   | Running under the WebSphere Liberty 17 |
   > | jetty     | Running under the Jetty 9 |
   > | glassfish | Running under the GlassFish 4 |
   > | resin     | Running under the Resin 4 |

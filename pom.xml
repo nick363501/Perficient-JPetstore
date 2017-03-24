@@ -130,7 +130,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.7.12</version>
+      <version>2.7.19</version>
       <scope>test</scope>
     </dependency>
 
@@ -180,7 +180,7 @@
       <id>tomcat90</id>
       <properties>
         <tomcat.major-version>9</tomcat.major-version>
-        <tomcat.version>9.0.0.M17</tomcat.version>
+        <tomcat.version>9.0.0.M18</tomcat.version>
       </properties>
     </profile>
     <profile>
@@ -190,28 +190,28 @@
       </activation>
       <properties>
         <tomcat.major-version>8</tomcat.major-version>
-        <tomcat.version>8.5.11</tomcat.version>
+        <tomcat.version>8.5.12</tomcat.version>
       </properties>
     </profile>
     <profile>
       <id>tomcat80</id>
       <properties>
         <tomcat.major-version>8</tomcat.major-version>
-        <tomcat.version>8.0.41</tomcat.version>
+        <tomcat.version>8.0.42</tomcat.version>
       </properties>
     </profile>
     <profile>
       <id>tomcat70</id>
       <properties>
         <tomcat.major-version>7</tomcat.major-version>
-        <tomcat.version>7.0.75</tomcat.version>
+        <tomcat.version>7.0.76</tomcat.version>
       </properties>
     </profile>
     <profile>
       <id>tomee</id>
       <properties>
         <tomee.major-version>7</tomee.major-version>
-        <tomee.version>7.0.2</tomee.version>
+        <tomee.version>7.0.3</tomee.version>
         <cargo.maven.containerId>tomee${tomee.major-version}x</cargo.maven.containerId>
         <cargo.maven.containerUrl>http://repo1.maven.org/maven2/org/apache/tomee/apache-tomee/${tomee.version}/apache-tomee-${tomee.version}-plume.zip</cargo.maven.containerUrl>
       </properties>
@@ -228,7 +228,7 @@
     <profile>
       <id>liberty</id>
       <properties>
-        <liberty.version>16.0.0.4</liberty.version>
+        <liberty.version>17.0.0.1</liberty.version>
         <cargo.maven.containerId>liberty</cargo.maven.containerId>
         <cargo.maven.containerUrl>http://repo1.maven.org/maven2/com/ibm/websphere/appserver/runtime/wlp-javaee7/${liberty.version}/wlp-javaee7-${liberty.version}.zip</cargo.maven.containerUrl>
       </properties>
@@ -237,7 +237,7 @@
       <id>jetty</id>
       <properties>
         <jetty.major-version>9</jetty.major-version>
-        <jetty.version>9.4.2.v20170220</jetty.version>
+        <jetty.version>9.4.3.v20170317</jetty.version>
         <cargo.maven.containerId>jetty${jetty.major-version}x</cargo.maven.containerId>
         <cargo.maven.containerUrl>http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${jetty.version}/jetty-distribution-${jetty.version}.tar.gz</cargo.maven.containerUrl>
       </properties>

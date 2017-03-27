@@ -19,7 +19,7 @@
 
 <div id="Footer">
 
-<div id="PoweredBy">&nbsp;<a href="http://www.mybatis.org">www.mybatis.org</a>
+<div id="PoweredBy">&nbsp;<a href="http://www.mybatis.org">www.mybatis.org</a> 2017
 </div>
 
 <div id="Banner"><c:if test="${sessionScope.accountBean != null }">

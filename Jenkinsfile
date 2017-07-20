@@ -7,8 +7,9 @@ node {
     if (isUnix()) {sh "'${MVN_HOME}/bin/mvn' -Dmaven.test.failure.ignore clean package"}
     else {bat(/"${MVN_HOME}\bin\mvn" -Dmaven.test.failure.ignore clean package/)}
     } 
-  }
-	stage('Publish JUnit Results') {
-		junit '**/target/surefire-reports/TEST-*.xml'
+  	stage('Publish JUnit Results') {
+		junit 'var/lib/jenkins/jobs/JPetstore/workspace/target/surefire-reports/TEST-*.xml'
 		archive 'target/*.jar'
-    }
+		}
+	}
+	

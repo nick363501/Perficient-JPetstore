@@ -9,7 +9,6 @@ node {
     } 
   	stage('Publish JUnit Results') {
 		junit 'var/lib/jenkins/jobs/JPetstore/workspace/target/surefire-reports/TEST-*.xml'
-		archive 'target/*.jar'
 		}
 	}
 	

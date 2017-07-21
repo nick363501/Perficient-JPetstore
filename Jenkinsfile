@@ -11,3 +11,4 @@ node {
   stage('Publish JUnit Results') {
     archive 'target/*.jar'
     }
+}

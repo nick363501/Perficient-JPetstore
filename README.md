@@ -1,3 +1,8 @@
+
+Insert to create new version in GitHub
+A
+A
+A
 MyBatis JPetStore
 =================
 

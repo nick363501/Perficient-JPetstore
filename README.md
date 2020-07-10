@@ -73,4 +73,4 @@ Running JPetStore sample under Tomcat (using the [cargo-maven2-plugin](https://c
 - Press Ctrl-C to stop the server.
 
 Super
-Added Dev Branch
+Deleted Dev Branch 
